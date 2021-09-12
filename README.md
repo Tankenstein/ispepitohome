@@ -4,4 +4,4 @@ Runs [ispepitohome.com](https://ispepitohome.com).
 
 I made this while slightly inebriated.
 
-This runs a github action every 5 minutes that gets the latest [Pepito](https://twitter.com/PepitoTheCat) tweets and then renders a page onto github pages.
+I run `updateServer.js` on a little box in my home. It checks if the site is up to date with the latest [Pepito](https://twitter.com/PepitoTheCat) tweets, and if not starts a github workflow that updates the page.
