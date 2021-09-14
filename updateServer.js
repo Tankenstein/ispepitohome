@@ -13,7 +13,10 @@ async function main() {
     getPepitoStatus(),
     getCurrentSiteStatus(),
   ]);
-  if (pepitoStatus.isHome !== siteStatus.isHome) {
+  if (
+    pepitoStatus.isHome !== siteStatus.isHome ||
+    pepitoStatus.updateTime !== siteStatus.updateTime
+  ) {
     log("Site is out of date, updating...");
     await updateSite();
   } else {
@@ -25,7 +28,19 @@ async function getCurrentSiteStatus() {
   const response = await http.get("https://ispepitohome.com");
   const text = response.data;
   const isHome = text.toLowerCase().includes("<h1>yes</h1>");
-  return { isHome };
+  const updateTime = parseUpdateTime(text);
+  return {
+    isHome,
+    updateTime,
+  };
+}
+
+function parseUpdateTime(html) {
+  const updateMatches = html.match(/(\d{2}:\d{2}:\d{2})/gi);
+  if (updateMatches && updateMatches.length) {
+    return updateMatches[0];
+  }
+  return null;
 }
 
 async function updateSite() {
