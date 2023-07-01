@@ -1,6 +1,8 @@
 # Is pepito home?
 
-Runs [ispepitohome.com](https://ispepitohome.com).
+Dead now.
+
+Used to run [ispepitohome.com](https://ispepitohome.com) until Elon killed free API access.
 
 I made this while slightly inebriated.
 
