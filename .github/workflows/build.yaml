@@ -16,8 +16,6 @@ jobs:
 
       - name: Generate page 🔧
         run: node generate
-        env:
-          TWITTER_BEARER_TOKEN: ${{ secrets.TWITTER_BEARER_TOKEN }}
 
       - name: Deploy 🚀
         uses: JamesIves/github-pages-deploy-action@4.1.5
