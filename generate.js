@@ -3,16 +3,16 @@ const mustache = require("mustache");
 const { getPepitoStatus } = require("./src/pepito");
 
 async function main() {
-  console.log("Fetching Pepito status...");
-  const pepito = await getPepitoStatus();
-  console.log("Creating view model...");
-  const viewModel = createViewModel(pepito);
+  // console.log("Fetching Pepito status...");
+  // const pepito = await getPepitoStatus();
+  // console.log("Creating view model...");
+  // const viewModel = createViewModel(pepito);
   console.log("Rendering view...");
   const template = await fs.readFile(`${__dirname}/pageTemplate.html`, "UTF-8");
-  const view = mustache.render(template, viewModel);
+  const view = mustache.render(template, {});
   console.log("Saving view...");
   await fs.writeFile(`${__dirname}/public/index.html`, view, "UTF-8");
-  console.log(`Done, ${viewModel.pageTitle}.`);
+  console.log(`Done`);
 }
 
 function createViewModel(pepito) {
