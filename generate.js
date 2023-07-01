@@ -1,6 +1,6 @@
 const fs = require("fs/promises");
 const mustache = require("mustache");
-const { getPepitoStatus } = require("./src/pepito");
+// const { getPepitoStatus } = require("./src/pepito");
 
 async function main() {
   // console.log("Fetching Pepito status...");
